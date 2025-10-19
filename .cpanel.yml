@@ -1,0 +1,5 @@
+# Example .cpanel.yml
+deployment:
+  tasks:
+    - export DOCROOT=/home4/omixf9e9/public_html
+    - /bin/cp -r * $DOCROOT
