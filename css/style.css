@@ -6,6 +6,11 @@
     --dark: #111111;
 }
 
+.Logo {
+    height: 120px; /* adjust as needed */
+    width: auto;   /* keeps aspect ratio */
+  }
+
 .back-to-top {
     position: fixed;
     display: none;
@@ -88,6 +93,25 @@
 .fixed-top {
     transition: .5s;
 }
+
+/* Control logo size without bloating navbar */
+.navbar-brand img.logo {
+    height: 100px;      /* Increase or adjust this value */
+    width: auto;
+  }
+  
+  /* Prevent navbar from growing too tall */
+  .navbar {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Remove extra padding that makes bar thicker */
+  .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
 .top-bar {
     height: 45px;
