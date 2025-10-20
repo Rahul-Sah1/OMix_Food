@@ -6,11 +6,6 @@
     --dark: #111111;
 }
 
-.Logo {
-    height: 120px; /* adjust as needed */
-    width: auto;   /* keeps aspect ratio */
-  }
-
 .back-to-top {
     position: fixed;
     display: none;
@@ -94,24 +89,24 @@
     transition: .5s;
 }
 
-/* Control logo size without bloating navbar */
+/* Optimized navbar logo size */
 .navbar-brand img.logo {
-    height: 100px;      /* Increase or adjust this value */
+    height: 80px;
     width: auto;
-  }
-  
-  /* Prevent navbar from growing too tall */
-  .navbar {
-    min-height: 80px;
+}
+
+/* Prevent navbar from growing too tall */
+.navbar {
+    min-height: 70px;
     display: flex;
     align-items: center;
-  }
-  
-  /* Remove extra padding that makes bar thicker */
-  .navbar-brand {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
+}
+
+/* Remove extra padding */
+.navbar-brand {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
 
 .top-bar {
     height: 45px;
@@ -140,6 +135,10 @@
 }
 
 @media (max-width: 991.98px) {
+    .navbar-brand img.logo {
+        height: 60px;
+    }
+
     .navbar .navbar-nav {
         margin-top: 10px;
         border-top: 1px solid rgba(0, 0, 0, .07);
@@ -171,7 +170,7 @@
 }
 
 
-/*** Header ***/
+/*** Header Carousel ***/
 .carousel-caption {
     top: 0;
     left: 0;
@@ -189,16 +188,6 @@
     width: 15%;
 }
 
-.about-section:nth-child(even) .row {
-    flex-direction: row-reverse; /* Reverse image and text for every even section */
-}
-
-.about-section .row {
-    display: flex;
-    align-items: center;
-}
-
-
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     width: 3rem;
@@ -208,24 +197,35 @@
     border-radius: 3rem;
 }
 
-@media (max-width: 768px) {
+/* Improved carousel image handling for mobile */
+#header-carousel .carousel-item {
+    position: relative;
+    min-height: 400px;
+}
+
+#header-carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width: 768px) {
     #header-carousel .carousel-item {
-        position: relative;
-        min-height: 450px;
+        min-height: 500px;
     }
-    
-    #header-carousel .carousel-item img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+}
+
+@media (min-width: 992px) {
+    #header-carousel .carousel-item {
+        min-height: 600px;
     }
 }
 
 .page-header {
     padding-top: 12rem;
     padding-bottom: 6rem;
-    background: url(../img/carousel-1.jpg) top right no-repeat;
+    background: url(../img/carousel-1.jpg) top center no-repeat;
     background-size: cover;
 }
 
@@ -269,11 +269,19 @@
 }
 
 
+/*** About Section ***/
+.about-section {
+    overflow-x: hidden;
+}
 
-/*** About ***/
+.about-img {
+    position: relative;
+}
+
 .about-img img {
     position: relative;
     z-index: 2;
+    border-radius: 8px;
 }
 
 .about-img::before {
@@ -283,14 +291,40 @@
     left: -50%;
     width: 100%;
     height: 100%;
-    background-image: -webkit-repeating-radial-gradient(#FFFFFF, #EEEEEE 5px, transparent 5px, transparent 10px);
-    background-image: -moz-repeating-radial-gradient(#FFFFFF, #EEEEEE 5px, transparent 5px, transparent 10px);
-    background-image: -ms-repeating-radial-gradient(#FFFFFF, #EEEEEE 5px, transparent 5px, transparent 10px);
-    background-image: -o-repeating-radial-gradient(#FFFFFF, #EEEEEE 5px, transparent 5px, transparent 10px);
     background-image: repeating-radial-gradient(#FFFFFF, #EEEEEE 5px, transparent 5px, transparent 10px);
     background-size: 20px 20px;
     transform: skew(20deg);
     z-index: 1;
+}
+
+/* Mobile responsive adjustments for about section */
+@media (max-width: 991.98px) {
+    .about-img::before {
+        left: -25%;
+        width: 80%;
+    }
+
+    .about-img {
+        padding: 2rem 1rem !important;
+    }
+
+    .about-section h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .about-img::before {
+        display: none;
+    }
+
+    .about-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .about-section p {
+        font-size: 0.95rem;
+    }
 }
 
 
@@ -318,6 +352,20 @@
 
 .product-item small a:hover {
     color: var(--primary) !important;
+}
+
+
+/*** Feature Section ***/
+.bg-icon {
+    background: url(../img/bg-icon.png) center center repeat;
+    background-size: contain;
+}
+
+/* Ensure equal height cards on mobile */
+@media (max-width: 767.98px) {
+    .bg-white.text-center.h-100 {
+        margin-bottom: 1rem;
+    }
 }
 
 
@@ -372,6 +420,22 @@
 }
 
 
+/*** Blog Section ***/
+.blog-item img {
+    border-radius: 8px 8px 0 0;
+}
+
+.blog-item .bg-light {
+    border-radius: 0 0 8px 8px;
+}
+
+@media (max-width: 767.98px) {
+    .blog-item {
+        margin-bottom: 1.5rem;
+    }
+}
+
+
 /*** Footer ***/
 .footer {
     color: #999999;
@@ -417,3 +481,101 @@
     color: var(--primary);
 }
 
+/* Mobile responsive footer */
+@media (max-width: 767.98px) {
+    .footer .col-lg-3,
+    .footer .col-md-6 {
+        margin-bottom: 2rem;
+    }
+
+    .footer h1,
+    .footer h4 {
+        font-size: 1.2rem;
+    }
+}
+
+
+/*** General Mobile Optimizations ***/
+@media (max-width: 575.98px) {
+    .container-fluid.bg-primary.bg-icon,
+    .container-fluid.bg-light.bg-icon {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .display-5 {
+        font-size: 1.8rem;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* Better spacing for sections on mobile */
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .py-6 {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+
+    /* Top bar spacing adjustment */
+    .fixed-top {
+        margin-top: 0;
+    }
+}
+
+/* Tablet optimizations */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .display-5 {
+        font-size: 2.2rem;
+    }
+
+    .navbar-brand img.logo {
+        height: 70px;
+    }
+}
+
+
+/*** Smooth Scrolling ***/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/*** Image Optimization ***/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*** Improved Readability ***/
+p {
+    line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+
+/*** Accessibility Improvements ***/
+a:focus,
+button:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(60, 184, 21, 0.25);
+}
