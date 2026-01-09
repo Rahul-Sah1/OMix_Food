@@ -1,6 +1,6 @@
-  =>  Template Name    : OMix - Organic Food Website Template
+  =>  Template Name    : OMix - Natural Food Website Template
 
-  =>  Template Link    : https://htmlcodex.com/organic-food-website-template
+  =>  Template Link    : https://htmlcodex.com/Natural-food-website-template
 
   =>  Template License : https://htmlcodex.com/license (or read the LICENSE.txt file)
 
