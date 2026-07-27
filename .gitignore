@@ -1,0 +1,28 @@
+# Dependencies — never commit, always install with npm install
+node_modules/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Editor folders
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# NOTE: dist/ is intentionally NOT ignored.
+# We commit the built dist/ so BigRock cPanel can serve it
+# without needing Node.js on the server.

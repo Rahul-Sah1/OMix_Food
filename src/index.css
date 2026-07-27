@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ──────────────────────────────────────────────────────── */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply font-sans bg-linen text-ink antialiased
+           dark:bg-night dark:text-snow;
+    font-feature-settings: "kern" 1, "liga" 1, "ss01" 1;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* ALL headings → Fraunces */
+  h1, h2, h3, h4 {
+    @apply font-display;
+    font-optical-sizing: auto;
+  }
+}
+
+/* ── Reusable components ────────────────────────────────────────── */
+@layer components {
+
+  /* Primary button — forest green */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 font-sans font-semibold text-sm tracking-wide
+           bg-forest text-white px-6 py-3 rounded-xl shadow-forest
+           hover:bg-forest-dark transition-all duration-200
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  /* Amber/gold button */
+  .btn-amber {
+    @apply inline-flex items-center gap-2 font-sans font-semibold text-sm tracking-wide
+           bg-amber text-white px-6 py-3 rounded-xl shadow-amber
+           hover:bg-amber-dark transition-all duration-200
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center gap-2 font-sans font-semibold text-sm tracking-wide
+           border-2 border-ink/15 text-ink px-6 py-3 rounded-xl
+           hover:border-forest hover:text-forest transition-all duration-200
+           dark:border-snow/15 dark:text-snow dark:hover:border-amber dark:hover:text-amber;
+  }
+
+  /* Section eyebrow label */
+  .label {
+    @apply font-sans text-xs font-semibold tracking-[0.2em] uppercase text-amber;
+  }
+
+  /* Section heading helper */
+  .heading {
+    @apply font-display font-800 text-ink dark:text-snow;
+    letter-spacing: -0.025em;
+  }
+
+  /* Body copy */
+  .body-copy {
+    @apply font-sans font-light text-ink/50 dark:text-snow/45 leading-relaxed;
+  }
+
+  /* Divider accent */
+  .divider-amber {
+    @apply w-12 h-1 bg-amber rounded-full;
+  }
+
+  /* Card surface */
+  .surface {
+    @apply bg-white dark:bg-night-card border border-ink/6 dark:border-night-border rounded-2xl;
+  }
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { @apply bg-sand; }
+::-webkit-scrollbar-thumb { @apply bg-amber rounded-full; }
+.dark ::-webkit-scrollbar-track { background: #131109; }
+.dark ::-webkit-scrollbar-thumb { background: #D97706; }
