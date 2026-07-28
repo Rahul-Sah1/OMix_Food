@@ -37,6 +37,55 @@
          swaps to the web font once loaded — no invisible text flash  -->
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet" />
+
+    <!-- ── JSON-LD Structured Data ──────────────────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "0Mix Foods Pvt. Ltd.",
+      "description": "100% pure wheat — freshly stone-milled and shipped farm-to-home from Nepal's Terai fields. No preservatives, no chemicals.",
+      "url": "https://omixfood.com",
+      "logo": "https://omixfood.com/favicon.png",
+      "image": "https://omixfood.com/favicon.png",
+      "telephone": "+91-6378817839",
+      "email": "omixfoods@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rangeli-6",
+        "addressLocality": "Morang",
+        "addressRegion": "Province No. 1",
+        "postalCode": "56700",
+        "addressCountry": "NP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "26.4833",
+        "longitude": "87.2667"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "20:00"
+      },
+      "sameAs": [],
+      "priceRange": "₹₹",
+      "servesCuisine": "Organic Wheat Products",
+      "hasMap": "https://maps.google.com/?q=Rangeli,Morang,Nepal"
+    }
+    </script>
+
+    <!-- ── Google Analytics ─────────────────────────────────────────────────
+         Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
+         Get it at: analytics.google.com → Admin → Data Streams         -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
   </head>
   <body>
     <div id="root"></div>
