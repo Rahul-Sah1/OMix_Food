@@ -1,6 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Send, ShoppingBag, Plus, Minus } from 'lucide-react'
+
+const WA_ICON = (
+  <svg viewBox="0 0 32 32" className="w-5 h-5 fill-white flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 2C8.28 2 2 8.28 2 16.004c0 2.464.663 4.842 1.918 6.917L2 30l7.268-1.886A13.96 13.96 0 0 0 16.004 30C23.72 30 30 23.72 30 16.004 30 8.28 23.72 2 16.004 2zm0 25.555a11.56 11.56 0 0 1-6.03-1.692l-.433-.257-4.312 1.12 1.148-4.195-.283-.45a11.587 11.587 0 0 1-1.753-6.077c0-6.396 5.207-11.6 11.6-11.6 6.396 0 11.6 5.204 11.6 11.6.003 6.396-5.2 11.55-11.537 11.55zm6.364-8.668c-.347-.175-2.058-1.015-2.377-1.132-.32-.117-.552-.175-.784.175s-.899 1.132-1.103 1.366c-.203.232-.406.261-.752.087-.347-.175-1.463-.54-2.786-1.72-1.03-.917-1.726-2.05-1.928-2.397-.203-.347-.022-.535.152-.707.157-.156.347-.406.52-.609.175-.203.232-.347.348-.58.116-.232.058-.435-.03-.609-.087-.175-.784-1.887-1.074-2.582-.284-.678-.57-.587-.784-.597l-.667-.013c-.232 0-.609.087-.928.435-.319.347-1.218 1.19-1.218 2.902s1.248 3.365 1.421 3.597c.175.232 2.455 3.748 5.951 5.256.832.36 1.481.574 1.987.734.834.265 1.595.228 2.196.138.67-.1 2.058-.84 2.348-1.653.29-.81.29-1.506.203-1.653-.086-.145-.319-.232-.667-.406z"/>
+  </svg>
+)
 
 const WA_NUMBER = '916378817839'
 
@@ -168,10 +174,19 @@ function ProductCard({ variant, cat, qty, onDec, onInc }) {
 }
 
 export default function WhatsAppButton() {
-  const [open, setOpen]     = useState(false)
-  const [form, setForm]     = useState({ name: '', phone: '', store: '', notes: '' })
-  const [qty, setQty]       = useState(initQty)
-  const [errors, setErrors] = useState({})
+  const [open, setOpen]           = useState(false)
+  const [form, setForm]           = useState({ name: '', phone: '', store: '', notes: '' })
+  const [qty, setQty]             = useState(initQty)
+  const [errors, setErrors]       = useState({})
+  const [showTooltip, setShowTooltip] = useState(false)
+  const tooltipTimer              = useRef(null)
+
+  // Show tooltip 2.5s after page load, auto-hide after 9s
+  useEffect(() => {
+    const show = setTimeout(() => setShowTooltip(true), 2500)
+    const hide = setTimeout(() => setShowTooltip(false), 11500)
+    return () => { clearTimeout(show); clearTimeout(hide) }
+  }, [])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -213,23 +228,101 @@ export default function WhatsAppButton() {
 
   return (
     <>
-      {/* Floating WhatsApp button */}
-      <motion.button
-        onClick={() => setOpen(true)}
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 1.5, type: 'spring', stiffness: 200 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center
-          bg-[#25D366] shadow-[0_4px_24px_rgba(37,211,102,0.5)] hover:shadow-[0_6px_32px_rgba(37,211,102,0.7)]
-          transition-shadow"
-        aria-label="Order on WhatsApp">
-        <svg viewBox="0 0 32 32" className="w-7 h-7 fill-white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16.004 2C8.28 2 2 8.28 2 16.004c0 2.464.663 4.842 1.918 6.917L2 30l7.268-1.886A13.96 13.96 0 0 0 16.004 30C23.72 30 30 23.72 30 16.004 30 8.28 23.72 2 16.004 2zm0 25.555a11.56 11.56 0 0 1-6.03-1.692l-.433-.257-4.312 1.12 1.148-4.195-.283-.45a11.587 11.587 0 0 1-1.753-6.077c0-6.396 5.207-11.6 11.6-11.6 6.396 0 11.6 5.204 11.6 11.6.003 6.396-5.2 11.55-11.537 11.55zm6.364-8.668c-.347-.175-2.058-1.015-2.377-1.132-.32-.117-.552-.175-.784.175s-.899 1.132-1.103 1.366c-.203.232-.406.261-.752.087-.347-.175-1.463-.54-2.786-1.72-1.03-.917-1.726-2.05-1.928-2.397-.203-.347-.022-.535.152-.707.157-.156.347-.406.52-.609.175-.203.232-.347.348-.58.116-.232.058-.435-.03-.609-.087-.175-.784-1.887-1.074-2.582-.284-.678-.57-.587-.784-.597l-.667-.013c-.232 0-.609.087-.928.435-.319.347-1.218 1.19-1.218 2.902s1.248 3.365 1.421 3.597c.175.232 2.455 3.748 5.951 5.256.832.36 1.481.574 1.987.734.834.265 1.595.228 2.196.138.67-.1 2.058-.84 2.348-1.653.29-.81.29-1.506.203-1.653-.086-.145-.319-.232-.667-.406z"/>
-        </svg>
-        <span className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-30" />
-      </motion.button>
+      {/* ── Sticky mobile Order Now bar ───────────────────────────────── */}
+      <motion.div
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 1, type: 'spring', stiffness: 200, damping: 22 }}
+        className="sm:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-2">
+        <button
+          onClick={() => { setOpen(true); setShowTooltip(false) }}
+          className="w-full flex items-center justify-center gap-3
+            bg-[#25D366] hover:bg-[#20c45e] text-white
+            font-sans font-bold text-[15px]
+            py-4 rounded-2xl
+            shadow-[0_-4px_30px_rgba(37,211,102,0.45)]
+            active:scale-[0.98] transition-all duration-150
+            relative overflow-hidden group">
+          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent
+            -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
+          {WA_ICON}
+          <span className="relative">Order Now on WhatsApp</span>
+          {/* live dot */}
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white/90" />
+          </span>
+        </button>
+      </motion.div>
+
+      {/* ── Desktop floating button + tooltip ────────────────────────── */}
+      <div className="hidden sm:block fixed bottom-6 right-6 z-50">
+
+        {/* Tooltip speech bubble — flashes on appear */}
+        <AnimatePresence>
+          {showTooltip && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 8 }}
+              animate={{
+                opacity: 1, scale: [0.8, 1.05, 1],
+                y: 0,
+                transition: { duration: 0.4 }
+              }}
+              exit={{ opacity: 0, scale: 0.85, y: 6, transition: { duration: 0.2 } }}
+              className="absolute bottom-[72px] right-0 mb-1">
+
+              {/* Flash pulse wrapper */}
+              <motion.div
+                animate={{ scale: [1, 1.04, 1, 1.04, 1, 1.02, 1] }}
+                transition={{ delay: 0.4, duration: 1.6, times: [0,.2,.4,.6,.8,.9,1] }}>
+
+                <div className="relative bg-white dark:bg-[#1a2018] rounded-2xl rounded-br-sm
+                  px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.18)] border border-ink/8 dark:border-white/8
+                  min-w-[170px]">
+
+                  {/* Dismiss */}
+                  <button onClick={() => setShowTooltip(false)}
+                    className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-ink/10 dark:bg-white/15
+                      flex items-center justify-center hover:bg-ink/20 transition">
+                    <X size={10} className="text-ink/60 dark:text-snow/60" />
+                  </button>
+
+                  <p className="font-sans font-bold text-sm text-ink dark:text-snow whitespace-nowrap">
+                    🛒 Order Now Online!
+                  </p>
+                  <p className="font-sans text-[10px] text-ink/45 dark:text-snow/35 mt-0.5">
+                    Pay on delivery · No advance
+                  </p>
+
+                  {/* Tail pointing down-right */}
+                  <div className="absolute -bottom-[7px] right-4 w-3.5 h-3.5
+                    bg-white dark:bg-[#1a2018]
+                    border-b border-r border-ink/8 dark:border-white/8
+                    rotate-45" />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Floating button */}
+        <motion.button
+          onClick={() => { setOpen(true); setShowTooltip(false) }}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.5, type: 'spring', stiffness: 200 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-14 h-14 rounded-full flex items-center justify-center relative
+            bg-[#25D366] shadow-[0_4px_24px_rgba(37,211,102,0.5)] hover:shadow-[0_6px_32px_rgba(37,211,102,0.7)]
+            transition-shadow"
+          aria-label="Order on WhatsApp">
+          <svg viewBox="0 0 32 32" className="w-7 h-7 fill-white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.004 2C8.28 2 2 8.28 2 16.004c0 2.464.663 4.842 1.918 6.917L2 30l7.268-1.886A13.96 13.96 0 0 0 16.004 30C23.72 30 30 23.72 30 16.004 30 8.28 23.72 2 16.004 2zm0 25.555a11.56 11.56 0 0 1-6.03-1.692l-.433-.257-4.312 1.12 1.148-4.195-.283-.45a11.587 11.587 0 0 1-1.753-6.077c0-6.396 5.207-11.6 11.6-11.6 6.396 0 11.6 5.204 11.6 11.6.003 6.396-5.2 11.55-11.537 11.55zm6.364-8.668c-.347-.175-2.058-1.015-2.377-1.132-.32-.117-.552-.175-.784.175s-.899 1.132-1.103 1.366c-.203.232-.406.261-.752.087-.347-.175-1.463-.54-2.786-1.72-1.03-.917-1.726-2.05-1.928-2.397-.203-.347-.022-.535.152-.707.157-.156.347-.406.52-.609.175-.203.232-.347.348-.58.116-.232.058-.435-.03-.609-.087-.175-.784-1.887-1.074-2.582-.284-.678-.57-.587-.784-.597l-.667-.013c-.232 0-.609.087-.928.435-.319.347-1.218 1.19-1.218 2.902s1.248 3.365 1.421 3.597c.175.232 2.455 3.748 5.951 5.256.832.36 1.481.574 1.987.734.834.265 1.595.228 2.196.138.67-.1 2.058-.84 2.348-1.653.29-.81.29-1.506.203-1.653-.086-.145-.319-.232-.667-.406z"/>
+          </svg>
+          <span className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-30" />
+        </motion.button>
+      </div>
 
       <AnimatePresence>
         {open && (

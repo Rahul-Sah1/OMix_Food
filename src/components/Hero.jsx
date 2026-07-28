@@ -11,11 +11,14 @@ const up = (delay = 0) => ({
   transition: { delay, duration: 0.7, ease: [0.22, 1, 0.36, 1] },
 })
 
+const freshLabel = `Fresh · ${new Date().toLocaleString('default', { month: 'short' })} ${new Date().getFullYear()}`
+
 const pills = [
-  { icon: '✓', label: 'FSSAI Approved',   color: 'text-forest dark:text-forest-muted' },
+  { icon: '✓',  label: 'FSSAI Approved',   color: 'text-forest dark:text-forest-muted' },
   { icon: '🌿', label: 'No Preservatives', color: 'text-forest dark:text-forest-muted' },
   { icon: '🚜', label: 'Farm Direct',      color: 'text-amber' },
   { icon: '🏠', label: '500+ Families',   color: 'text-amber' },
+  { icon: '🌾', label: freshLabel,         color: 'text-forest dark:text-forest-muted' },
 ]
 
 export default function Hero() {
