@@ -77,23 +77,12 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-1 space-y-5">
             {/* Logo */}
-            <div className="flex items-center gap-2.5">
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-10 w-auto">
-                <circle cx="20" cy="20" r="20" fill="rgba(255,255,255,0.12)" />
-                <circle cx="20" cy="20" r="20" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-                <line x1="20" y1="32" x2="20" y2="10" stroke="#F4F0E8" strokeWidth="1.6" strokeLinecap="round" />
-                <ellipse cx="20" cy="11" rx="3.2" ry="4.5" fill="#D97706" />
-                <ellipse cx="15.5" cy="15" rx="2.6" ry="3.8" fill="#D97706" transform="rotate(-28 15.5 15)" />
-                <ellipse cx="14"   cy="20" rx="2.4" ry="3.5" fill="#D97706" transform="rotate(-22 14 20)" />
-                <ellipse cx="24.5" cy="15" rx="2.6" ry="3.8" fill="#D97706" transform="rotate(28 24.5 15)" />
-                <ellipse cx="26"   cy="20" rx="2.4" ry="3.5" fill="#D97706" transform="rotate(22 26 20)" />
-              </svg>
-              <div>
-                <span className="font-display font-bold text-2xl text-white" style={{ letterSpacing: '-0.03em' }}>
-                  0<span className="text-amber">Mix</span>
-                </span>
-                <p className="font-sans text-[9px] font-medium text-white/35 tracking-[0.18em] uppercase -mt-0.5">Pure Wheat</p>
-              </div>
+            <div className="flex items-start">
+              <img
+                src="/Main_Logo.png"
+                alt="OMix — Pure Wheat"
+                style={{ height: 80, width: 'auto', maxWidth: 220, objectFit: 'contain' }}
+              />
             </div>
 
             <p className="font-sans font-light text-white/40 text-xs leading-relaxed">
