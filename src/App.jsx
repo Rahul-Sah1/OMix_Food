@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useTheme } from './hooks/useTheme'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import CustomerLove from './components/CustomerLove'
 import ProductGrid from './components/ProductGrid'
 import WhyOMix from './components/WhyOMix'
 import VideoSection from './components/VideoSection'
@@ -19,6 +20,7 @@ function MainPage() {
     <>
       <main>
         <Hero />
+        <CustomerLove />
         <ProductGrid />
         <WhyOMix />
         <VideoSection />

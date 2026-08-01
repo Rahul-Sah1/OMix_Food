@@ -34,12 +34,12 @@ export default function Footer() {
       </div>
 
       {/* ── Background gradient ── */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#062212] via-[#0f3d22] to-[#14532D] dark:from-[#060d08] dark:via-[#0a1f0f] dark:to-[#0f2d18]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#78350f] via-[#92400e] to-[#b45309] dark:from-[#291105] dark:via-[#431407] dark:to-[#7c2d12]" />
 
       {/* ── Decorative glow blobs ── */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-forest/50 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 -left-16 w-80 h-80 rounded-full bg-amber/10 blur-[100px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-forest-light/5 blur-[140px] pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-orange-400/30 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 -left-16 w-80 h-80 rounded-full bg-amber/20 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-orange-300/10 blur-[140px] pointer-events-none" />
 
       {/* ── Large watermark wheat icon ── */}
       <div className="absolute -bottom-10 right-8 opacity-[0.04] pointer-events-none select-none">

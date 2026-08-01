@@ -14,13 +14,13 @@ export default function VideoSection() {
   return (
     <section id="about" className="relative overflow-hidden pb-20 lg:pb-28 transition-colors duration-300">
 
-      {/* ── Background: deep green → warm amber gradient ── */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#062212] via-[#0f3d22] to-[#7c2d12] dark:from-[#060d08] dark:via-[#0a1f0f] dark:to-[#4a1a08]" />
+      {/* ── Background: light orange gradient ── */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#b45309] via-[#c2410c] to-[#9a3412] dark:from-[#431407] dark:via-[#7c2d12] dark:to-[#571c05]" />
 
       {/* ── Glow blobs ── */}
-      <div className="absolute top-10 -left-16 w-80 h-80 rounded-full bg-forest/50 blur-[110px] pointer-events-none" />
-      <div className="absolute bottom-0 -right-16 w-96 h-96 rounded-full bg-amber/25 blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-64 rounded-full bg-amber/8 blur-[100px] pointer-events-none" />
+      <div className="absolute top-10 -left-16 w-80 h-80 rounded-full bg-orange-300/30 blur-[110px] pointer-events-none" />
+      <div className="absolute bottom-0 -right-16 w-96 h-96 rounded-full bg-amber/35 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-64 rounded-full bg-orange-200/15 blur-[100px] pointer-events-none" />
 
       {/* Wave divider — matches WhyOMix bg above */}
       <div className="absolute top-0 left-0 right-0 overflow-hidden pointer-events-none z-10">
