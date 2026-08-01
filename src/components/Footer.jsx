@@ -28,13 +28,13 @@ export default function Footer() {
           />
           <path
             d="M0,0 L0,20 C200,56 440,64 720,36 C1000,8 1240,40 1440,32 L1440,0 Z"
-            fill="rgba(255,255,255,0.04)"
+            fill="rgba(255,255,255,0.08)"
           />
         </svg>
       </div>
 
       {/* ── Background gradient ── */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#78350f] via-[#92400e] to-[#b45309] dark:from-[#291105] dark:via-[#431407] dark:to-[#7c2d12]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a3a1a] via-[#7c4a0a] to-[#a86818] dark:from-[#0d1f0d] dark:via-[#4a2a06] dark:to-[#6b4010]" />
 
       {/* ── Decorative glow blobs ── */}
       <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-orange-400/30 blur-[120px] pointer-events-none" />
@@ -56,7 +56,7 @@ export default function Footer() {
             >
               Pure Wheat, Right at Your Door
             </h3>
-            <p className="font-sans text-white/45 text-sm mt-1">
+            <p className="font-sans text-white/55 text-sm mt-1">
               Farm-fresh from Terai fields to your kitchen — no middlemen, no compromise.
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function Footer() {
               />
             </div>
 
-            <p className="font-sans font-light text-white/40 text-xs leading-relaxed">
+            <p className="font-sans font-light text-white/50 text-xs leading-relaxed">
               100% pure wheat from Nepal's finest farms to your kitchen.
               No preservatives. No compromise. Just honest grain.
             </p>
@@ -94,7 +94,7 @@ export default function Footer() {
             <div className="flex flex-wrap gap-2">
               {['FSSAI', 'Chemical Free', 'Farm Direct'].map((t) => (
                 <span key={t}
-                  className="font-sans text-[9px] font-semibold px-2 py-0.5 rounded-full border border-white/15 text-white/40 bg-white/5">
+                  className="font-sans text-[9px] font-semibold px-2 py-0.5 rounded-full border border-white/20 text-white/50 bg-white/8">
                   {t}
                 </span>
               ))}
@@ -108,7 +108,7 @@ export default function Footer() {
                 { icon: <Youtube size={14} />, label: 'YouTube' },
               ].map((s) => (
                 <a key={s.label} href="#" aria-label={s.label}
-                  className="w-9 h-9 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center text-white/40 hover:bg-amber hover:border-amber hover:text-white transition-all duration-200">
+                  className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white/50 hover:bg-amber hover:border-amber hover:text-white transition-all duration-200">
                   {s.icon}
                 </a>
               ))}
@@ -125,7 +125,7 @@ export default function Footer() {
               {quickLinks.map((l) => (
                 <li key={l.label}>
                   <a href={l.href} onClick={(e) => { e.preventDefault(); scrollTo(l.href) }}
-                    className="font-sans text-xs text-white/45 hover:text-white flex items-center gap-1.5 group transition-colors duration-150">
+                    className="font-sans text-xs text-white/50 hover:text-white flex items-center gap-1.5 group transition-colors duration-150">
                     <span className="w-0 group-hover:w-3 h-px bg-amber transition-all duration-200" />
                     {l.label}
                   </a>
@@ -144,7 +144,7 @@ export default function Footer() {
               {support.map((l) => (
                 <li key={l}>
                   <a href="#"
-                    className="font-sans text-xs text-white/45 hover:text-white flex items-center gap-1.5 group transition-colors duration-150">
+                    className="font-sans text-xs text-white/50 hover:text-white flex items-center gap-1.5 group transition-colors duration-150">
                     <span className="w-0 group-hover:w-3 h-px bg-amber transition-all duration-200" />
                     {l}
                   </a>
@@ -161,27 +161,27 @@ export default function Footer() {
             </div>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-lg bg-white/8 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-7 h-7 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin size={12} className="text-amber" />
                 </div>
-                <span className="font-sans text-xs text-white/45 leading-relaxed">Rangeli-6, Morang, Nepal</span>
+                <span className="font-sans text-xs text-white/50 leading-relaxed">Rangeli-6, Morang, Nepal</span>
               </li>
               <li>
                 <a href="tel:+977-0000000000"
                   className="flex items-center gap-3 group">
-                  <div className="w-7 h-7 rounded-lg bg-white/8 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber group-hover:border-amber transition-all duration-200">
+                  <div className="w-7 h-7 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0 group-hover:bg-amber group-hover:border-amber transition-all duration-200">
                     <Phone size={12} className="text-amber group-hover:text-white transition-colors" />
                   </div>
-                  <span className="font-sans text-xs text-white/45 group-hover:text-white transition-colors">+977 XXX-XXXXXXX</span>
+                  <span className="font-sans text-xs text-white/50 group-hover:text-white transition-colors">+977 XXX-XXXXXXX</span>
                 </a>
               </li>
               <li>
                 <a href="mailto:hello@0mix.com"
                   className="flex items-center gap-3 group">
-                  <div className="w-7 h-7 rounded-lg bg-white/8 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-amber group-hover:border-amber transition-all duration-200">
+                  <div className="w-7 h-7 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0 group-hover:bg-amber group-hover:border-amber transition-all duration-200">
                     <Mail size={12} className="text-amber group-hover:text-white transition-colors" />
                   </div>
-                  <span className="font-sans text-xs text-white/45 group-hover:text-white transition-colors">hello@0mix.com</span>
+                  <span className="font-sans text-xs text-white/50 group-hover:text-white transition-colors">hello@0mix.com</span>
                 </a>
               </li>
             </ul>
@@ -190,10 +190,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-sans text-[11px] text-white/20">
+          <p className="font-sans text-[11px] text-white/25">
             © {new Date().getFullYear()} 0Mix Foods Pvt. Ltd. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 font-sans text-[11px] text-white/20">
+          <div className="flex items-center gap-2 font-sans text-[11px] text-white/25">
             <span className="w-1 h-1 rounded-full bg-amber/40 flex-shrink-0" />
             <p>Crafted with care in Nepal 🇳🇵</p>
           </div>

@@ -15,7 +15,7 @@ export default function VideoSection() {
     <section id="about" className="relative overflow-hidden pb-20 lg:pb-28 transition-colors duration-300">
 
       {/* ── Background: light orange gradient ── */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#b45309] via-[#c2410c] to-[#9a3412] dark:from-[#431407] dark:via-[#7c2d12] dark:to-[#571c05]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1e4220] via-[#6b4a0a] to-[#9a6418] dark:from-[#0d1f0d] dark:via-[#3d2806] dark:to-[#5a3a0c]" />
 
       {/* ── Glow blobs ── */}
       <div className="absolute top-10 -left-16 w-80 h-80 rounded-full bg-orange-300/30 blur-[110px] pointer-events-none" />
@@ -46,7 +46,7 @@ export default function VideoSection() {
             style={{ fontSize: 'clamp(2.4rem,5vw,3.8rem)', lineHeight: 1.05, letterSpacing: '-0.03em' }}>
             The <span className="text-amber italic">0Mix</span> Journey
           </h2>
-          <p className="font-sans font-light text-snow/40 text-base max-w-md mx-auto leading-relaxed">
+          <p className="font-sans font-light text-snow/50 text-base max-w-md mx-auto leading-relaxed">
             From Nepal's Terai fields to your dinner table — how we keep every grain honest.
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function VideoSection() {
                 className="w-20 h-20 rounded-full border-2 border-snow/50 bg-snow/10 backdrop-blur-sm flex items-center justify-center shadow-glow-amber group-hover:border-amber group-hover:bg-amber/20 transition-all duration-300">
                 <Play size={30} className="text-snow fill-snow ml-1.5" />
               </motion.div>
-              <span className="font-sans font-semibold text-snow/70 text-sm tracking-wide">Watch Our Story</span>
+              <span className="font-sans font-semibold text-snow/80 text-sm tracking-wide">Watch Our Story</span>
             </button>
           )}
 
@@ -100,7 +100,7 @@ export default function VideoSection() {
           {[['🌾', 'Harvested'], ['⚙️', 'Milled'], ['🏠', 'Delivered']].map(([icon, label]) => (
             <div key={label} className="flex flex-col items-center gap-2">
               <span className="text-3xl">{icon}</span>
-              <span className="font-sans text-xs font-medium text-snow/50 tracking-wide">{label}</span>
+              <span className="font-sans text-xs font-medium text-snow/55 tracking-wide">{label}</span>
             </div>
           ))}
         </div>
